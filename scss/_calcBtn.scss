@@ -1,0 +1,37 @@
+.btn {
+    text-align: center;
+    font-size: 2rem;
+   border-radius: 5px;
+   border: 1px solid gray ;
+   &:hover{
+    cursor: pointer;
+    border: 1px solid rgb(196, 53,28);
+    background-color:rgb(196, 53,28) ;
+    transition-duration: 0.4s;
+   }
+   &_operation:hover {
+    border: 1px solid rgb(73, 28,196);
+    background-color:rgb(73, 28, 196) ;
+   }
+   &_clear:hover {
+    border: 1px solid rgb(6, 63,9);
+    background-color:rgb(6, 63,9) ;
+   }
+   &_equal:hover {
+    border: 1px solid rgb(216, 133,24);
+    background-color:rgb(216, 133,24) ;
+   }
+   &-num-0{
+    // grid-column-start:1 ;
+    // grid-column-end:3 ;
+    // grid-row: 5/6 ;
+    grid-area: 5/1/6/3;
+
+   }
+   &_equal{
+    grid-column-start:4 ;
+    grid-column-end:5 ;
+    grid-row: 4/6 ;
+   
+   }
+}
