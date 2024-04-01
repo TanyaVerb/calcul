@@ -47,48 +47,158 @@
 // console.dir(containerBtn); // список доступных свойств
 // ____________________________________________________________
 
-const cleanEntry = document.getElementById("clearCE");
-console.log(cleanEntry);
+// const cleanEntry = document.getElementById("clearCE");
+// console.log(cleanEntry);
 
-const clear = document.getElementById("clearC");
-console.log(clear);
+// const clear = document.getElementById("clearC");
+// console.log(clear);
 
-const point = document.getElementById("point");
-console.log(point);
-const equal = document.querySelector(".btn_equal");
-console.log(equal);
-const divide = document.querySelector(".btn-divide");
-console.log(divide);
-const multiply = document.querySelector(".btn-multiply");
-console.log(multiply);
-const plus = document.querySelector(".btn-plus");
-console.log(plus);
-const minus = document.querySelector(".btn-minus");
-console.log(minus);
+// const point = document.getElementById("point");
+// console.log(point);
+// const equal = document.querySelector(".btn_equal");
+// console.log(equal);
+// const divide = document.querySelector(".btn-divide");
+// console.log(divide);
+// const multiply = document.querySelector(".btn-multiply");
+// console.log(multiply);
+// const plus = document.querySelector(".btn-plus");
+// console.log(plus);
+// const minus = document.querySelector(".btn-minus");
+// console.log(minus);
 
-const input = document.querySelector(".calc__screen");
-console.log(input);
+// const input = document.querySelector(".calc__screen");
+// console.log(input);
 
-const num1 = document.querySelector(".btn-num-1");
-console.log(num1);
-const num2 = document.querySelector(".btn-num-2");
-console.log(num2);
-const num3 = document.querySelector(".btn-num-3");
-console.log(num3);
-const num4 = document.querySelector(".btn-num-4");
-console.log(num4);
-const num5 = document.querySelector(".btn-num-5");
-console.log(num5);
-const num6 = document.querySelector(".btn-num-6");
-console.log(num6);
-const num7 = document.querySelector(".btn-num-7");
-console.log(num7);
-const num8 = document.querySelector(".btn-num-8");
-console.log(num8);
-const num9 = document.querySelector(".btn-num-9");
-console.log(num9);
-const num0 = document.querySelector(".btn-num-0");
-console.log(num0);
+// const num1 = document.querySelector(".btn-num-1");
+// console.log(num1);
+// const num2 = document.querySelector(".btn-num-2");
+// console.log(num2);
+// const num3 = document.querySelector(".btn-num-3");
+// console.log(num3);
+// const num4 = document.querySelector(".btn-num-4");
+// console.log(num4);
+// const num5 = document.querySelector(".btn-num-5");
+// console.log(num5);
+// const num6 = document.querySelector(".btn-num-6");
+// console.log(num6);
+// const num7 = document.querySelector(".btn-num-7");
+// console.log(num7);
+// const num8 = document.querySelector(".btn-num-8");
+// console.log(num8);
+// const num9 = document.querySelector(".btn-num-9");
+// console.log(num9);
+// const num0 = document.querySelector(".btn-num-0");
+// console.log(num0);
 // console.log(num0.innerHTML);
 // console.log(num0.tagName);
 // console.log(num0.nodeName);
+//___________________________________________________________
+//  const screen = document.getElementsByTagName('input')
+//  let index = 0
+//  console.log(screen);
+
+//  console.dir(screen[index].atributes);
+
+//  const screen = document.getElementsByClassName('calc__screen temp')
+
+// const clearBtn = document.getElementById('clearCE')
+//  console.log(clearBtn.attributes);
+
+// const nums = document.getElementsByName('Vlad')
+// console.log(nums);
+
+// const sum = document.querySelector('.calc .calc__btn-container .btn-plus' )
+// console.log(sum);
+// const sum = document.querySelectorAll('.btn' )
+// console.log(sum);
+
+// = 3мя способами
+//  const equal = document.getElementsByTagName('button ') 
+
+//  console.log(screen);
+//  console.log(equal);
+
+//  const equal = document.querySelector('.btn_equal' )
+//  console.log(equal);
+
+
+//  const equal2 = document.getElementsByClassName('.btn_equal')
+//  console.log(equal2);
+//______________________________________________________
+
+//События
+
+const clearBtn = document.getElementById('clearC')
+console.log(clearBtn);
+
+const printLog = function(){
+    console.log ('Yraaa! CLICK')
+}
+printLog()
+
+// let  userName ={
+//     firstName: null, 
+//     sayHi(){
+//         console.log('Привет')
+//     }
+// }
+
+
+// console.log(clearBtn.onclick) 
+clearBtn.onclick = printLog
+
+//_________________
+console.dir(clearBtn); 
+clearBtn.addEventListener('click',function(event){
+    console.log(event.target.textContent);
+    printLog()
+}) //клик на кнопку C 
+
+
+// const digits = document.querySelectorAll('.digit')
+// console.log(digits);
+// ___________________________________________________
+
+const equal = document.querySelector('.btn_equal')
+console.log(equal);
+
+equal.addEventListener('click',function(event){
+    console.log(event.target.textContent);
+    printLog()
+}) //клик на кнопку =
+
+//__________________________________________________
+
+const digits = document.querySelectorAll('.digit')
+console.log(digits);
+
+const screen = document.getElementsByClassName('calc__screen temp')
+console.log(screen);
+
+// for (let i = 0; i < digits.length; i++){
+// digits[i].addEventListener('click',function(event){
+//     console.log(event.target.textContent);
+//     screen[0].value = event.target.textContent
+    
+// })
+// }
+
+
+const calc =document. querySelector('.calc__btn-container')
+console.dir(calc);
+
+calc.addEventListener('click',function(event){
+    console.log(event.target);
+    if (event.target.classList.contains('digit'))
+    screen[0].value = event.target.textContent
+   
+})
+
+// получение элементов
+// не забывать что некоторые способы возвращают коллекцию
+//  что такое событие
+//  3 способа навесить слушатель события на элемент 
+//  знать addEventList  какие аргументы нужно передавать 
+//  что приходит в качестве параметра в передаваемый второй аргумент
+// что такое target
+// classList, attributes, classList.contains (  у target)
