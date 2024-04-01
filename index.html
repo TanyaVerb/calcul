@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 <body>
@@ -17,10 +17,10 @@
             <input class="calc__screen" type="text" maxlength="15" placeholder="000000000000000">
         </div>
         <div class=" calc__btn-container">
-            <button id = "clearCE"  class="btn btn_clear" >CE</button>
+            <button id = "clearCE"  class="btn btn_clear">CE</button>
             <button id = "clearC" class="btn btn_clear" >C</button>
-            <button class="btn btn_operation">/</button>
-            <button class="btn btn_operation">*</button>
+            <button class="btn btn_operation btn-divide">/</button>
+            <button class="btn btn_operation btn-multiply">*</button>
             <button class="btn btn-num-1">1</button>
             <button class="btn btn-num-2">2</button>
             <button class="btn btn-num-3">3</button>
@@ -33,11 +33,8 @@
             <button class="btn btn-num-8">8</button>
             <button class="btn btn-num-9">9</button>
             <button class="btn btn_equal">=</button>
-                  
-                  
-                     
             <button class="btn btn-num-0">0</button>
-            <button class="btn btn-num-point">.</button>
+            <button  id = "point" class="btn btn-num-point">.</button>
 
         </div>
     </div>
