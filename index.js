@@ -209,7 +209,7 @@ function calculate(num1, num2, sign) {
       break;
   }
 }
-
+// __________________________________________event не обязательно?
 clearBtn.addEventListener("click", function (event) {
   console.log("Star Clear");
 
@@ -219,6 +219,7 @@ clearBtn.addEventListener("click", function (event) {
   screen.value = "";
 });
 
+// ___________________________+=?
 function onClickDigits(event) {
   if (event.target.classList.contains("digit")) {
     const pressNum = event.target.textContent;
