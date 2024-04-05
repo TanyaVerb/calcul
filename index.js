@@ -113,7 +113,7 @@
 // console.log(sum);
 
 // = 3мя способами
-//  const equal = document.getElementsByTagName('button ') 
+//  const equal = document.getElementsByTagName('button ')
 
 //  console.log(screen);
 //  console.log(equal);
@@ -121,84 +121,162 @@
 //  const equal = document.querySelector('.btn_equal' )
 //  console.log(equal);
 
-
 //  const equal2 = document.getElementsByClassName('.btn_equal')
 //  console.log(equal2);
 //______________________________________________________
 
 //События
 
-const clearBtn = document.getElementById('clearC')
-console.log(clearBtn);
-
-const printLog = function(){
-    console.log ('Yraaa! CLICK')
-}
-printLog()
+// const printLog = function () {
+//   console.log("Yraaa! CLICK");
+// };
+// printLog();
 
 // let  userName ={
-//     firstName: null, 
+//     firstName: null,
 //     sayHi(){
 //         console.log('Привет')
 //     }
 // }
 
-
-// console.log(clearBtn.onclick) 
-clearBtn.onclick = printLog
+// console.log(clearBtn.onclick)
+// clearBtn.onclick = printLog;
 
 //_________________
-console.dir(clearBtn); 
-clearBtn.addEventListener('click',function(event){
-    console.log(event.target.textContent);
-    printLog()
-}) //клик на кнопку C 
-
+// console.dir(clearBtn);
 
 // const digits = document.querySelectorAll('.digit')
 // console.log(digits);
 // ___________________________________________________
 
-const equal = document.querySelector('.btn_equal')
-console.log(equal);
+// const equal = document.querySelector(".btn_equal");
+// console.log(equal);
 
-equal.addEventListener('click',function(event){
-    console.log(event.target.textContent);
-    printLog()
-}) //клик на кнопку =
+// equal.addEventListener("click", function (event) {
+//   console.log(event.target.textContent);
+// }); //клик на кнопку =
 
 //__________________________________________________
 
-const digits = document.querySelectorAll('.digit')
-console.log(digits);
+// const digits = document.querySelectorAll(".digit");
+// console.log(digits);
 
-const screen = document.getElementsByClassName('calc__screen temp')
-console.log(screen);
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++
+const clearBtn = document.getElementById("clearC");
+const screen = document.querySelector(".calc__screen");
+const calc = document.querySelector(".calc__btn-container");
+
+const OPERATION = {
+  sum: "+",
+  subtract: "-",
+  multiply: "*",
+  divide: "/",
+};
+
+const calculateData = {
+  num1: "",
+  num2: "",
+  sign: "",
+  result: "",
+};
+
+function sum(num1, num2) {
+  return +num1 + +num2;
+}
+function subtract(num1, num2) {
+  return +num1 - +num2;
+}
+function multiply(num1, num2) {
+  return +num1 * +num2;
+}
+function divide(num1, num2) {
+  return +num1 / +num2;
+}
+
+function calculate(num1, num2, sign) {
+  switch (sign) {
+    case OPERATION.sum:
+      calculateData.result = String(sum(num1, num2));
+      break;
+    case OPERATION.subtract:
+      calculateData.result = String(subtract(num1, num2));
+      break;
+    case OPERATION.multiply:
+      calculateData.result = String(multiply(num1, num2));
+      break;
+    case OPERATION.divide:
+      calculateData.result = String(divide(num1, num2));
+      break;
+  }
+}
+
+clearBtn.addEventListener("click", function (event) {
+  console.log("Star Clear");
+
+  calculateData.num1 = "";
+  calculateData.num2 = "";
+  calculateData.sign = "";
+  screen.value = "";
+});
+
+function onClickDigits(event) {
+  if (event.target.classList.contains("digit")) {
+    const pressNum = event.target.textContent;
+
+    if (calculateData.sign === "") {
+      screen.value += pressNum;
+      calculateData.num1 = screen.value;
+    } else {
+      calculateData.num2 += pressNum;
+      screen.value = calculateData.num2;
+    }
+  }
+}
+
+function onClickOperations(event) {
+  if (event.target.classList.contains("btn_operation")) {
+    const pressOperator = event.target.textContent;
+    calculateData.sign = pressOperator;
+    screen.value = pressOperator; //записываем знак
+  }
+
+  if (event.target.classList.contains("btn_equal")) {
+    console.log("btn_equal");
+    calculateData.num1 = calculateData.result;
+    calculateData.num2 = "";
+    calculateData.sign = "";
+    screen.value = calculateData.num1;
+  }
+}
+
+calc.addEventListener("click", function (event) {
+  // if (event.target.classList.contains("digit")) {
+  //   const pressNum = event.target.textContent;
+  //   if (calculateData.sign === "") {
+  //     screen.value += pressNum;
+  //     calculateData.num1 = screen.value;
+  //   } else {
+  //     calculateData.num2 += pressNum;
+  //     screen.value = calculateData.num2
+  //   }
+  // }
+  // if (event.target.classList.contains("btn_operation")) {
+  //   const pressOperator = event.target.textContent;
+  //   calculateData.sing = pressOperator;
+  //   screen.value = pressOperator;
+  // }
+
+  onClickDigits(event);
+  onClickOperations(event);
+  calculate(calculateData.num1, calculateData.num2, calculateData.sign);
+
+  // console.log(calculateData);
+});
 
 // for (let i = 0; i < digits.length; i++){
 // digits[i].addEventListener('click',function(event){
 //     console.log(event.target.textContent);
 //     screen[0].value = event.target.textContent
-    
+
 // })
 // }
-
-
-const calc =document. querySelector('.calc__btn-container')
-console.dir(calc);
-
-calc.addEventListener('click',function(event){
-    console.log(event.target);
-    if (event.target.classList.contains('digit'))
-    screen[0].value = event.target.textContent
-   
-})
-
-// получение элементов
-// не забывать что некоторые способы возвращают коллекцию
-//  что такое событие
-//  3 способа навесить слушатель события на элемент 
-//  знать addEventList  какие аргументы нужно передавать 
-//  что приходит в качестве параметра в передаваемый второй аргумент
-// что такое target
-// classList, attributes, classList.contains (  у target)
