@@ -219,7 +219,7 @@ clearBtn.addEventListener("click", function (event) {
   screen.value = "";
 });
 
-// ___________________________+=?
+// _цифры и точка__________________________+=?
 function onClickDigits(event) {
   if (event.target.classList.contains("digit")) {
     const pressNum = event.target.textContent;
